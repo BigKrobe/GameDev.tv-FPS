@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class EnemyAI : MonoBehaviour
 
     NavMeshAgent _navMeshAgent;
     float _distanceToTarget = Mathf.Infinity;
+    bool _isProvoked = false;
 
     void Start()
     {
@@ -19,9 +21,43 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         _distanceToTarget = Vector3.Distance(_target.position, transform.position);
-        if (_distanceToTarget <= _chaseRange)
+
+        if (_isProvoked)
         {
-            _navMeshAgent.SetDestination(_target.position);
+            EngageTarget();
         }
+        else if (_distanceToTarget <= _chaseRange)
+        {
+            _isProvoked = true;
+        }
+    }
+
+    void EngageTarget()
+    {
+        if (_distanceToTarget >= _navMeshAgent.stoppingDistance)
+        {
+            ChaseTarget();
+        }
+
+        if (_distanceToTarget < _navMeshAgent.stoppingDistance)
+        {
+            AttackTarget();
+        }
+    }
+
+    private void ChaseTarget()
+    {
+        _navMeshAgent.SetDestination(_target.position);
+    }
+
+    private void AttackTarget()
+    {
+        Debug.Log(name + " has seeked and is destroying " + _target.name);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, _chaseRange);
     }
 }
