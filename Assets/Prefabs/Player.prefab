@@ -16,6 +16,7 @@ MonoBehaviour:
   _range: 100
   damage: 25
   _muzzleFlash: {fileID: 7883199185215808356}
+  _hitEffect: {fileID: 3917745662238334340, guid: 0119b16ec331e69458247c3ba98fd263, type: 3}
 --- !u!1 &1512415927738162230
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +228,8 @@ GameObject:
   - component: {fileID: 4936490315205150489}
   - component: {fileID: 4936490315195901913}
   - component: {fileID: 4936490315189719453}
+  - component: {fileID: 1035639367}
+  - component: {fileID: 7056591463418560902}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -348,6 +351,32 @@ MonoBehaviour:
     slowDownRate: 20
     airControl: 1
     shellOffset: 0
+--- !u!114 &1035639367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4936490315199964287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d7b2ecbd151e714eb4cde084d2366b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerHealth: 100
+--- !u!114 &7056591463418560902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4936490315199964287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb98c78a18a80c409576afacb2fa744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameOverCanvas: {fileID: 0}
 --- !u!1001 &3816652076983741230
 PrefabInstance:
   m_ObjectHideFlags: 0
