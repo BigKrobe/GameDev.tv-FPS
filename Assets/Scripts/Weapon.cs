@@ -46,7 +46,6 @@ public class Weapon : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(_FPCamera.transform.position, _FPCamera.transform.forward, out hit, _range))
         {
-            // TODO: add some hit effect for visual feedback
             CreateHitImpact(hit);
             EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
             if (target == null) return;
