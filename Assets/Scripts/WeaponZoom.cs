@@ -14,7 +14,7 @@ public class WeaponZoom : MonoBehaviour
     [SerializeField] float _zoomedIn = 30f;
     [SerializeField] float _zoomedInSensitivity = .5f;
 
-    private void Update()
+    private  void Update()
     {
         CameraZoom();
     }

@@ -43,7 +43,7 @@ public class WeaponSwitcher : MonoBehaviour
 
     private void ProcessScrollWheel()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             if (_currentWeapon >= transform.childCount -1)
             {
@@ -54,7 +54,7 @@ public class WeaponSwitcher : MonoBehaviour
                 _currentWeapon++;
             }
         }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             if (_currentWeapon <= 0)
             {
